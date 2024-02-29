@@ -1,0 +1,4 @@
+.txt
+*.pyc
+ch3-postgresql/.venv/
+ch2-dockerized_hello/.env/

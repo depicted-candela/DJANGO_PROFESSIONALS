@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    ## Detached flag makes the following command usable but with the allowed port 127.0.0.1.8000?
+    command: python manage.py runserver 0.0.0.0:8000
+    ## Syncs the container to the local file system
+    volumes:
+      - .:/code
+  db:

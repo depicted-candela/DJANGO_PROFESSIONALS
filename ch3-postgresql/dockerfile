@@ -1,0 +1,24 @@
+## Pull base image
+# The Python version to be installed, being slim-bullseye the latest Debian version for such Python
+FROM python:3.11.5-slim-bullseye
+
+## Set environment variables (0 true, 1 false)
+# To avoid automatic pip updates
+ENV PIP_DISABLE_PIP_VERSUIB_CHECK 1
+# To not compile pythonc (.pyc) binaries
+ENV PYTHONDONTWRITEBYTECODE 1
+# Is not needed whilst we are not using high performance systems
+ENV PYTHONUNBUFFERED 1
+
+## Set work directory
+WORKDIR /code
+
+## Install dependencies
+# Where the last point means where to copy the requirements, within the working directory of our image
+COPY ./requirements.txt .
+# Install the requirements in the current working directory of our image
+RUN pip install -r requirements.txt
+
+## Copy project
+# From the current working file system (.) to the working directory of our image
+COPY . .
