@@ -1,4 +1,7 @@
 .txt
 *.pyc
-ch3-postgresql/.venv/
+*db.sqlite3
 ch2-dockerized_hello/.env/
+ch2-dockerized_hello/django_project/__pycache__/
+ch3-postgresql/.venv/
+ch3-dockerized_hello/django_project/__pycache__/

@@ -2,11 +2,20 @@ version: "3.9"
 services:
   web:
     build: .
-    ports:
-      - "8000:8000"
     ## Detached flag makes the following command usable but with the allowed port 127.0.0.1.8000?
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python /code/manage.py runserver 0.0.0.0:8000
     ## Syncs the container to the local file system
     volumes:
       - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
   db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+volumes:
+  postgres_data:
