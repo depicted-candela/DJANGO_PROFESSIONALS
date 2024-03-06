@@ -6,7 +6,13 @@
     <h1>This is our home page</h1>
     {% if user.is_authenticated %}
         <p>Hello {{user.email}} </p>
-        <p>Click if you want to <a href="{% url 'logout' %}">Logged Out</a></p>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            Click if you want to
+            <button type="submit">
+                Logged Out
+            </button>
+        </form>
     {% else %}
         <p>You're not logged in. Please log in</p>
         <a href="{% url 'login' %}">Log In</a>
