@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "accounts.apps.AccountsConfig",
+    "pages.apps.PagesConfig",
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = "django_project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -129,3 +130,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Defines the type of user to be authenticated as default
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+# Defines what page appears when login
+LOGIN_REDIRECT_URL = "home"
+
+# Defines what page appears when logout
+LOGOUT_REDIRECT_URL = "home"

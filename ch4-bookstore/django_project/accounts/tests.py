@@ -1,9 +1,16 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 
-## As in Java, all has a class, like suggested by Bjarne and Martin but for Polymofirsms
+# As in Java, all has a class, like suggested by Bjarne and Martin but for Polymofirsms
 class CustomUserTests(TestCase):
-    def test_create_user(self): # Why this name? Is defualt?
+    """Tests for the custom user
+    
+    Args:
+        TestCase (TestCase): The TestCase class from django.test provides a base for Django unit tests, automatically setting up a clean database for each test and allowing database interactions for testing data manipulation and model behavior.
+    """
+    def test_create_user(self):
+        """To test the capability for creating custom users
+        """
         User = get_user_model()
         user = User.objects.create_user(
             username="christov", email="christov@gmail.com", password="123"
@@ -16,6 +23,8 @@ class CustomUserTests(TestCase):
         self.assertFalse(user.is_staff)
         self.assertFalse(user.is_superuser)
     def test_create_superuser(self):
+        """To test the capability for editing custom users
+        """
         User = get_user_model()
         admin_user = User.objects.create_superuser(
             username="admin", email="admin@gmail.com", password="admin123"
