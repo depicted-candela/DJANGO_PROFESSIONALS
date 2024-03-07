@@ -10,10 +10,6 @@ class HomepageTests(SimpleTestCase):
     """
     def setUp(self):
         """A sort of constructor. To get a response getting, from the client, the home url "/".
-        Not used the 
-
-        Returns:
-            HttpRequest: response of the home url "/"
         """
         self.response = self.client.get(reverse("home")) # This code is telling a story
         self.url_response = self.client.get("/") # counterintuitive but is for test a url
