@@ -22,5 +22,5 @@ urlpatterns = [
     ## To use the same url, should be used different names from the contrib.auth.urls
     path("accounts/", include("accounts.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
-    path("", include("pages.urls"))
+    path("", include("pages.urls")),
 ]

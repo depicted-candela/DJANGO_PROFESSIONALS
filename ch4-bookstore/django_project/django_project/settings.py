@@ -121,7 +121,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL          = "static/"                 # It the url for media uploading, in http://127.0.0.1.8000/static/
+STATICFILES_DIRS    = [BASE_DIR / "static"]   # Granulars for specific apss
+STATIC_ROOT         = BASE_DIR / "staticfiles"  # Root for static files when production is started
+                                                # Engine for storing
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
